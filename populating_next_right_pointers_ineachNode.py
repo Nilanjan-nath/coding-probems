@@ -36,6 +36,52 @@ def postorder_traversal(node):
         postorder_traversal(node.right)
         print(node.data, end=" ")
 
+# # Creating a binary tree
+# root = node(1)
+# root.left = node(2)
+# root.right = node(3)
+# root.left.left = node(4)
+# root.left.right =node(5)
+# root.right.left =node(6)
+# root.right.right = node(7)
+
+# print("Binary Tree In-order Traversal:")
+# inorder_traversal(root)
+# print("\n")
+
+
+# print("Binary Tree Post-order Traversal:")
+# postorder_traversal(root)
+# print("\n")
+class Solution:
+    def connect(self, root: 'node') -> 'node':
+        if not root:
+            return root
+        
+        # Start with the root node
+        queue = [root]
+        
+        while queue:
+            # Get the number of nodes in the current level
+            size = len(queue)
+            print(size)
+            # Traverse through the nodes in the current level
+            for i in range(size):
+                # Get the first node from the queue
+                node = queue.pop(0)
+                
+                # If it's not the last node in the level, set its next to the next node in the queue
+                if i < size - 1:
+                    node.next = queue[0]
+                
+                # Add the node's children to the queue if they exist
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        
+        # Return the root node
+        return root
 # Creating a binary tree
 root = node(1)
 root.left = node(2)
@@ -44,15 +90,10 @@ root.left.left = node(4)
 root.left.right =node(5)
 root.right.left =node(6)
 root.right.right = node(7)
-
-print("Binary Tree In-order Traversal:")
-inorder_traversal(root)
-print("\n")
-
 print("Binary Tree Pre-order Traversal:")
 preorder_traversal(root)
 print("\n")
-
-print("Binary Tree Post-order Traversal:")
-postorder_traversal(root)
+s = Solution()
+result_root = s.connect(root)
+preorder_traversal(result_root)
 print("\n")
