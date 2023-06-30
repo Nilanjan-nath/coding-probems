@@ -10,3 +10,49 @@ struct Node {
 Input: root = [1,2,3,4,5,6,7]
 Output: [1,#,2,3,#,4,5,6,7,#]
 Explanation: Given the above perfect binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.'''
+class node:
+    def __init__(self, data= 0 , left = None , right = None , next = None):
+        self.data = data
+        self.left = None
+        self.right = None
+        self.next = None
+
+# In-order tree traversal (Left -> Root -> Right)
+def inorder_traversal(node):
+    if node is not None:
+        inorder_traversal(node.left)
+        print(node.data, end=" ")
+        inorder_traversal(node.right)
+# Pre-order tree traversal (Root -> Left -> Right)
+def preorder_traversal(node):
+    if node is not None:
+        print(node.data, end=" ")
+        preorder_traversal(node.left)
+        preorder_traversal(node.right)
+# Post-order tree traversal (Left -> Right -> Root)
+def postorder_traversal(node):
+    if node is not None:
+        postorder_traversal(node.left)
+        postorder_traversal(node.right)
+        print(node.data, end=" ")
+
+# Creating a binary tree
+root = node(1)
+root.left = node(2)
+root.right = node(3)
+root.left.left = node(4)
+root.left.right =node(5)
+root.right.left =node(6)
+root.right.right = node(7)
+
+print("Binary Tree In-order Traversal:")
+inorder_traversal(root)
+print("\n")
+
+print("Binary Tree Pre-order Traversal:")
+preorder_traversal(root)
+print("\n")
+
+print("Binary Tree Post-order Traversal:")
+postorder_traversal(root)
+print("\n")
