@@ -69,7 +69,8 @@ class Solution:
             for i in range(size):
                 # Get the first node from the queue
                 node = queue.pop(0)
-                
+                print(queue)
+                print(node.data)
                 # If it's not the last node in the level, set its next to the next node in the queue
                 if i < size - 1:
                     node.next = queue[0]
