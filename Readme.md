@@ -1,1 +1,1 @@
-# Solving problems everyday and pushing it on github to be familiar with coding ✨
+# Solving problems everyday and pushing it on github to get familiar with coding ✨
